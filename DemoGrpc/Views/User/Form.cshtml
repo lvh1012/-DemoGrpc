@@ -1,0 +1,37 @@
+﻿@model UserModel
+
+<div class="row">
+    <form asp-controller="User" asp-action="@(ViewData["Action"])" method="post">
+        <div class="mb-3">
+            <label class="form-label" asp-for="Username"></label>
+            <input class="form-control" asp-for="Username">
+            <div asp-validation-for="Username"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Email"></label>
+            <input class="form-control" asp-for="Email" >
+            <div asp-validation-for="Email"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Fullname"></label>
+            <input class="form-control" asp-for="Fullname" >
+            <div asp-validation-for="Fullname"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="CreatedDate"></label>
+            <input class="form-control" asp-for="CreatedDate">
+            <div asp-validation-for="CreatedDate"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="LastActive"></label>
+            <input class="form-control" asp-for="LastActive">
+            <div asp-validation-for="LastActive"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Disable"></label>
+            <input class="form-check-input" asp-for="Disable" >
+            <div asp-validation-for="Disable"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

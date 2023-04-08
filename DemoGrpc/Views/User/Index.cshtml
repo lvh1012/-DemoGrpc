@@ -1,0 +1,54 @@
+﻿@model List<UserModel>
+
+<div class="row">
+    <div class="col">
+        <a class="btn btn-primary" role="button" asp-controller="User" asp-action="Create">
+            Thêm mới
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Fullname</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Last Active</th>
+                <th scope="col">Disable</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <th scope="row">@(user.Id)</th>
+                    <td>
+                        <a asp-controller="User" asp-action="Edit" asp-route-id="@user.Id">
+                            @(user.Username)
+                        </a>
+                    </td>
+                    <td>@(user.Email)</td>
+                    <td>@(user.Fullname)</td>
+                    <td>@(user.CreatedDate)</td>
+                    <td>@(user.LastActive)</td>
+                    <td>
+                        @if (user.Disable)
+                        {
+                            <input type="checkbox" class="form-check-input" checked disabled>
+                        }
+                        else
+                        {
+                            <input type="checkbox" class="form-check-input" disabled>
+                        }
+                    </td>
+                    <td><a class="btn btn-secondary" role="button" asp-controller="User" asp-action="Delete" asp-route-id="@user.Id">Xóa</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
